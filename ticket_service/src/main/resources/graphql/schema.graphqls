@@ -1,0 +1,39 @@
+type Query {
+    getMatch : [MatchOutputDto]
+}
+
+type Mutation {
+    addMatch(matchInputDto : MatchInputDto) : MatchOutputDto
+    getTicket(ticketInputDto : TicketInputDto) : TicketOutputDto
+    updateTicket(id : String) : Boolean
+}
+
+##inputs
+input TicketInputDto{
+    price : Float,
+    matchId : String
+}
+
+input MatchInputDto{
+    date : String,
+    lieu : String,
+    equipe1 : String
+    equipe2 : String,
+    availableTickets : Int
+}
+##types
+type MatchOutputDto {
+    id : ID,
+    ref : String,
+    date : String,
+    lieux : String,
+    equipe1 : String,
+    equipe2 : String
+}
+
+type TicketOutputDto {
+    id : String,
+    price : String,
+    lieux : String,
+    ref : String,
+    matchOutputDto : MatchOutputDto }
